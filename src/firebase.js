@@ -1,20 +1,18 @@
-// Import the functions you need from the SDKs you need
+// Import the necessary functions from Firebase SDK
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, GoogleAuthProvider } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 
-
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDUZ-2k4jIE4bKDrgowFrn-dSaceI4xRR4",
-  authDomain: "finance-track-4d5be.firebaseapp.com",
-  projectId: "finance-track-4d5be",
-  storageBucket: "finance-track-4d5be.firebasestorage.app",
-  messagingSenderId: "1035354948907",
-  appId: "1:1035354948907:web:8190eafdc22043b23d316e",
-  measurementId: "G-BC5LBS73QW"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
@@ -22,6 +20,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const auth = getAuth(app);
-const provider = new GoogleAuthProvider(app);
+const provider = new GoogleAuthProvider();
 
 export { db, auth, provider, doc, setDoc };
