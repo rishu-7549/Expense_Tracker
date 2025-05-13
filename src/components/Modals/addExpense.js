@@ -18,6 +18,7 @@ function AddExpenseModal({ isExpenseModalVisible, handleExpenseCancel, onFinish 
         onFinish={(values) => {
           onFinish(values, "expense");
           form.resetFields();
+          handleExpenseCancel();
         }}
       >
         <Form.Item
@@ -34,7 +35,7 @@ function AddExpenseModal({ isExpenseModalVisible, handleExpenseCancel, onFinish 
 
           <Input type="text" className="custom-input" />
         </Form.Item>
-        
+
         <Form.Item
           style={{ fontWeight: 600 }}
           label="Amount"

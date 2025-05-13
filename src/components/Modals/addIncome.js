@@ -17,6 +17,7 @@ function AddIncomeModal({ isIncomeModalVisible, handleIncomeCancel, onFinish }) 
         onFinish={(values) => {
           onFinish(values, "income");
           form.resetFields();
+          handleIncomeCancel();
         }}
       >
         <Form.Item
@@ -32,7 +33,7 @@ function AddIncomeModal({ isIncomeModalVisible, handleIncomeCancel, onFinish }) 
         >
           <Input type="text" className="custom-input" />
         </Form.Item>
-        
+
         <Form.Item
           style={{ fontWeight: 600 }}
           label="Amount"
